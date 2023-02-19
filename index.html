@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Filter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #ffb892;
+        }
+
+        .hide {
+
+            display: none;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 m-auto mt-5">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <h3>Find Fruit </h3>
+                        <div class="mb-3">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search in List">
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-items">Apple</li>    
+                            <li class="list-group-items">Banana</li>  
+                            <li class="list-group-items">Grape</li>  
+                            <li class="list-group-items">Peach</li>  
+                            <li class="list-group-items">Apricot</li>  
+                            <li class="list-group-items">Strawberry</li>  
+                            <li class="list-group-items">Mulberry</li>  
+                            <li class="list-group-items">Watermelon</li>  
+                            <li class="list-group-items">Pomogranate</li>  
+                            <li class="list-group-items">Mandri</li>  
+                            <li class="list-group-items">Cantaloupe</li>  
+                            <li class="list-group-items">Davidson's plum</li>  
+                            <li class="list-group-items">Bayberry</li>  
+                            <li class="list-group-items"> Blueberry</li>  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let searchInput = document.getElementId('searchInput')
+        let fruitList = document.querySelector('.list-group > *')
+
+        searchInput.onkeyup = (e) => {
+            let search = e.target.value.toLowerCase()
+            for(let i of fruitList){
+               let item = i.innerHTML.toLowerCase()
+               if(item.indexOf(search)== -1) {
+                i.classList.add('hide')
+               }else{
+                i.classList.remove('hide')
+               }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
